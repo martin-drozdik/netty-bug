@@ -29,7 +29,7 @@ class DemoApplication
             persons.forEach {
                 var response = client
                     .get()
-                    .uri("/api/person/jim")
+                    .uri("/api/person/me")
                     .header("Authorization", basicAuth(it.id, it.pwd))
                     .accept(MediaType.APPLICATION_JSON)
                     .retrieve()
