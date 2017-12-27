@@ -9,11 +9,6 @@ import org.springframework.web.reactive.function.client.WebClient
 import java.nio.charset.StandardCharsets
 import java.util.*
 
-data class Person
-(
-    var id: String,
-    var pwd: String
-)
 
 @SpringBootApplication
 class ClientApplication
@@ -27,14 +22,14 @@ class ClientApplication
         while (true)
         {
             persons.forEach {
-                var response = client
+                val response = client
                     .get()
                     .uri("/api/person/jim")
                     .header("Authorization", basicAuth(it.id, it.pwd))
                     .accept(MediaType.APPLICATION_JSON)
                     .retrieve()
                     .bodyToMono(Person::class.java)
-                    .block()
+                    .block()!!
 
                 println(response.id)
                 }
