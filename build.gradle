@@ -41,13 +41,11 @@ configure ([project(':server'), project(':client')]) {
 
 
     dependencies {
-        compile('org.springframework.boot:spring-boot-starter-security')
         compile('org.springframework.boot:spring-boot-starter-webflux')
         compile("org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}")
         compile("org.jetbrains.kotlin:kotlin-reflect")
         testCompile('org.springframework.boot:spring-boot-starter-test')
         testCompile('io.projectreactor:reactor-test')
-        testCompile('org.springframework.security:spring-security-test')
         compile 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive'
 
         // Kotlin Jackson
