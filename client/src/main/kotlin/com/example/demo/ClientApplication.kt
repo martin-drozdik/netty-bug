@@ -13,7 +13,7 @@ import java.util.*
 @SpringBootApplication
 class ClientApplication
 {
-    private val client = WebClient.builder().baseUrl("http://localhost:8080").build()
+    private val client = WebClient.create("http://localhost:8080")
 
     @Bean
     fun run() = CommandLineRunner {
