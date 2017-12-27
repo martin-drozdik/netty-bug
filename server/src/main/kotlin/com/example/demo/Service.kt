@@ -19,11 +19,4 @@ class PersonHandler(val personRepository: PersonRepository)
             .findOne(req.pathVariable("id"))
             .flatMap { ServerResponse.ok().contentType(MediaType.APPLICATION_JSON).body(it.toMono()) }
     }
-
-    fun post(req: ServerRequest): Mono<ServerResponse>
-    {
-        return req.bodyToMono<Person>()
-            .flatMap { personRepository.save(it) }
-            .flatMap { ServerResponse.created(URI.create("/api/person/${it.id}")).contentType(MediaType.APPLICATION_JSON).body(it.toMono()) }
-    }
 }

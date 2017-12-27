@@ -16,7 +16,7 @@ data class Person
 )
 
 @SpringBootApplication
-class DemoApplication
+class ClientApplication
 {
     private val client = WebClient.builder().baseUrl("http://localhost:8080").build()
 
@@ -29,7 +29,7 @@ class DemoApplication
             persons.forEach {
                 var response = client
                     .get()
-                    .uri("/api/person/me")
+                    .uri("/api/person/jim")
                     .header("Authorization", basicAuth(it.id, it.pwd))
                     .accept(MediaType.APPLICATION_JSON)
                     .retrieve()
@@ -43,17 +43,10 @@ class DemoApplication
 }
 
 fun main(args: Array<String>) {
-    runApplication<DemoApplication>(*args)
+    runApplication<ClientApplication>(*args)
 }
 
 
-/**
- * Creates an basic authentication header:
- * 'Basic base64(username:password)'
- *
- * @precondition: Basic authentication only supports ISO-8859-1
- * @see: https://stackoverflow.com/questions/702629/utf-8-characters-mangled-in-http-basic-auth-username#703341
- */
 fun basicAuth(username: String, password: String): String
 {
     val credentialsString = username + ":" + password

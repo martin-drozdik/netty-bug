@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Bean
 import org.springframework.security.crypto.password.PasswordEncoder
 
 @SpringBootApplication
-class DemoApplication
+class ServerApplication
 {
     @Bean
     fun manipulateRepository(personRepository: PersonRepository, passwordEncoder: PasswordEncoder) = CommandLineRunner {
@@ -20,5 +20,5 @@ class DemoApplication
 }
 
 fun main(args: Array<String>) {
-    runApplication<DemoApplication>(*args)
+    runApplication<ServerApplication>(*args)
 }

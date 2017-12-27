@@ -18,8 +18,6 @@ class ApiRoutes
             "/person".nest {
 
                 GET("/{id}", personHandler::get)
-
-                POST("/{id}", personHandler::post)
             }
         }
     }
