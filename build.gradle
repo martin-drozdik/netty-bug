@@ -54,3 +54,10 @@ configure ([project(':server'), project(':client')]) {
         compile "com.fasterxml.jackson.module:jackson-module-kotlin:2.9.0"
     }
 }
+
+project(':client') {
+
+    dependencies {
+        compile project(':server')
+    }
+}
