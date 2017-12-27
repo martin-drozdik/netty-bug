@@ -1,0 +1,12 @@
+// server
+
+group = 'server'
+version = '1.0'
+
+sourceSets {
+    main {
+        kotlin {
+            ["src/main/kotlin"]
+        }
+    }
+}

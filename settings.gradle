@@ -1,0 +1,3 @@
+rootProject.name = "netty-bug"
+
+include 'client', 'server'
