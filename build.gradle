@@ -48,7 +48,6 @@ configure ([project(':server'), project(':client')]) {
         testCompile('org.springframework.boot:spring-boot-starter-test')
         testCompile('io.projectreactor:reactor-test')
         testCompile('org.springframework.security:spring-security-test')
-        compile 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive'
 
         // Kotlin Jackson
         compile "com.fasterxml.jackson.module:jackson-module-kotlin:2.9.0"

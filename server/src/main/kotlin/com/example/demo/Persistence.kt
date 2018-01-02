@@ -1,14 +1,15 @@
 package com.example.demo
 
-import org.springframework.data.mongodb.core.ReactiveMongoTemplate
-import org.springframework.data.mongodb.core.findById
 import org.springframework.stereotype.Repository
 import reactor.core.publisher.Mono
+import reactor.core.publisher.toMono
 
 @Repository
-class PersonRepository(val template: ReactiveMongoTemplate)
+class PersonRepository
 {
-    fun findOne(id: String): Mono<Person> = template.findById<Person>(id)
+    val items = mutableListOf<Person>()
 
-    fun save(person: Person): Mono<Person> = template.save<Person>(person)
+    fun findOne(id: String): Mono<Person> = items.find { it.id == id }!!.toMono()
+
+    fun save(person: Person) = items.add(person)
 }

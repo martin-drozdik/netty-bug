@@ -14,8 +14,8 @@ class ServerApplication
 
         val person1 = Person("jim", passwordEncoder.encode("pwd1"))
         val person2 = Person("jon", passwordEncoder.encode("pwd2"))
-        personRepository.save(person1).block()
-        personRepository.save(person2).block()
+        personRepository.save(person1)
+        personRepository.save(person2)
     }
 }
 
